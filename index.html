@@ -240,27 +240,28 @@
         en: {
           name: "Alan Lopes",
           headline: "Software Engineering & AI Enthusiast",
-          intro:
-            "I'm 24 years old, a Brazilian bachelor's degree student in Software Engineering living in Rio de Janeiro.",
-          current:
-            "I'm currently a low-code developer at TeamSoft for about six months, working with FlutterFlow, Dart, Supabase and Figma.",
-          skillsLabel: 'Main skills'
+          intro: "I'm 24 years old, a Brazilian bachelor's degree student in Software Engineering living in Rio de Janeiro.",
+          current: "I'm currently a low-code developer at TeamSoft for about six months, working with FlutterFlow, Dart, Supabase and Figma.",
+          skillsLabel: "Main skills"
         },
         pt: {
           name: "Alan Lopes",
           headline: "Entusiasta de Engenharia de Software e IA",
-          intro:
-            "Tenho 24 anos, sou estudante brasileiro de bacharelado em Engenharia de Software e moro no Rio de Janeiro.",
-          current:
-            "Atualmente sou desenvolvedor low-code na TeamSoft há cerca de seis meses, trabalhando com FlutterFlow, Dart, Supabase e Figma.",
-          skillsLabel: 'Principais habilidades'
+          intro: "Tenho 24 anos, sou estudante brasileiro de bacharelado em Engenharia de Software e moro no Rio de Janeiro.",
+          current: "Atualmente sou desenvolvedor low-code na TeamSoft há cerca de seis meses, trabalhando com FlutterFlow, Dart, Supabase e Figma.",
+          skillsLabel: "Principais habilidades"
         }
       };
 
       const buttons = document.querySelectorAll('[data-lang-btn]');
       const translatable = document.querySelectorAll('[data-i18n]');
+      const supportedLanguages = ['en', 'pt'];
 
       function setLanguage(lang) {
+        if (!supportedLanguages.includes(lang)) {
+          return;
+        }
+
         translatable.forEach((element) => {
           const key = element.getAttribute('data-i18n');
           if (translations[lang] && translations[lang][key]) {
@@ -278,6 +279,8 @@
       buttons.forEach((button) => {
         button.addEventListener('click', () => setLanguage(button.getAttribute('data-lang-btn')));
       });
+
+      setLanguage('en');
     </script>
   </body>
 </html>
