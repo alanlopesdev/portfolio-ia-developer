@@ -139,6 +139,11 @@
         font-size: clamp(1.8rem, 4vw, 2.6rem);
       }
 
+      h2 {
+        margin: 0 0 0.6rem;
+        font-size: 1.35rem;
+      }
+
       .subtitle {
         color: var(--accent);
         margin: 0.35rem 0 1rem;
@@ -195,11 +200,15 @@
   <body>
     <div class="stars"></div>
     <div class="floating-layer" aria-hidden="true">
-      <span class="float-word" style="left: 8%; animation-duration: 11s; animation-delay: -2s; font-size: 1.2rem">Python</span>
-      <span class="float-word" style="left: 26%; animation-duration: 13s; animation-delay: -5s; font-size: 1rem">TypeScript</span>
-      <span class="float-word" style="left: 44%; animation-duration: 12s; animation-delay: -8s; font-size: 1.1rem">Dart</span>
-      <span class="float-word" style="left: 60%; animation-duration: 14s; animation-delay: -3s; font-size: 1rem">FlutterFlow</span>
-      <span class="float-word" style="left: 76%; animation-duration: 10s; animation-delay: -6s; font-size: 1.15rem">LangChain</span>
+      <span class="float-word" style="left: 6%; top: 12%; animation-duration: 11s; animation-delay: -2s; font-size: 1.2rem">Python</span>
+      <span class="float-word" style="left: 18%; top: 36%; animation-duration: 13s; animation-delay: -5s; font-size: 1rem">TypeScript</span>
+      <span class="float-word" style="left: 32%; top: 58%; animation-duration: 12s; animation-delay: -8s; font-size: 1.1rem">Dart</span>
+      <span class="float-word" style="left: 48%; top: 22%; animation-duration: 14s; animation-delay: -3s; font-size: 1rem">FlutterFlow</span>
+      <span class="float-word" style="left: 66%; top: 44%; animation-duration: 10s; animation-delay: -6s; font-size: 1.15rem">LangChain</span>
+      <span class="float-word" style="left: 80%; top: 68%; animation-duration: 12s; animation-delay: -4s; font-size: 1rem">Supabase</span>
+      <span class="float-word" style="left: 12%; top: 78%; animation-duration: 15s; animation-delay: -9s; font-size: 1rem">Figma</span>
+      <span class="float-word" style="left: 54%; top: 80%; animation-duration: 13s; animation-delay: -7s; font-size: 0.95rem">Agents</span>
+      <span class="float-word" style="left: 74%; top: 10%; animation-duration: 11s; animation-delay: -1s; font-size: 1.05rem">AI</span>
     </div>
 
     <main>
@@ -233,6 +242,21 @@
           <a href="https://github.com/alanlopesdev" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)">GitHub</a>
         </div>
       </section>
+
+      <section class="card">
+        <h2 data-i18n="experienceTitle">Professional Experience</h2>
+        <ul>
+          <li data-i18n="experienceTeamsoft">TeamSoft — Low-code developer working with FlutterFlow, Dart, Supabase and Figma.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="educationTitle">Education</h2>
+        <ul>
+          <li data-i18n="educationUninter">Bachelor's in Software Engineering - Uninter.</li>
+          <li data-i18n="educationAlura">Agent Engineering Track - Alura.</li>
+        </ul>
+      </section>
     </main>
 
     <script>
@@ -242,14 +266,24 @@
           headline: "Software Engineering & AI Enthusiast",
           intro: "I'm 24 years old, a Brazilian bachelor's degree student in Software Engineering living in Rio de Janeiro.",
           current: "I'm currently a low-code developer at TeamSoft for about six months, working with FlutterFlow, Dart, Supabase and Figma.",
-          skillsLabel: "Main skills"
+          skillsLabel: "Main skills",
+          experienceTitle: "Professional Experience",
+          experienceTeamsoft: "TeamSoft — Low-code developer working with FlutterFlow, Dart, Supabase and Figma.",
+          educationTitle: "Education",
+          educationUninter: "Bachelor's in Software Engineering - Uninter.",
+          educationAlura: "Agent Engineering Track - Alura."
         },
         pt: {
           name: "Alan Lopes",
           headline: "Entusiasta de Engenharia de Software e IA",
           intro: "Tenho 24 anos, sou estudante brasileiro de bacharelado em Engenharia de Software e moro no Rio de Janeiro.",
           current: "Atualmente sou desenvolvedor low-code na TeamSoft há cerca de seis meses, trabalhando com FlutterFlow, Dart, Supabase e Figma.",
-          skillsLabel: "Principais habilidades"
+          skillsLabel: "Principais habilidades",
+          experienceTitle: "Experiências profissionais",
+          experienceTeamsoft: "TeamSoft — Desenvolvedor low-code trabalhando com FlutterFlow, Dart, Supabase e Figma.",
+          educationTitle: "Formação",
+          educationUninter: "Bacharel Engenharia de Software - Uninter.",
+          educationAlura: "Trilha de Engenharia de Agentes - Alura."
         }
       };
 
