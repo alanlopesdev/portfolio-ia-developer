@@ -204,8 +204,8 @@
 
     <main>
       <div class="lang-switch">
-        <button type="button" class="active" data-lang-btn="en">English</button>
-        <button type="button" data-lang-btn="pt">Português</button>
+        <button type="button" class="active" data-lang-btn="en" aria-pressed="true">English</button>
+        <button type="button" data-lang-btn="pt" aria-pressed="false">Português</button>
       </div>
 
       <section class="card">
@@ -228,9 +228,9 @@
         </div>
 
         <div class="links">
-          <a href="https://x.com/alanlopesz1" target="_blank" rel="noopener noreferrer">X</a>
-          <a href="https://www.linkedin.com/in/alan-lopes-aa943b216/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://github.com/alanlopesdev" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://x.com/alanlopesz1" target="_blank" rel="noopener noreferrer" aria-label="X (opens in new tab)">X</a>
+          <a href="https://www.linkedin.com/in/alan-lopes-aa943b216/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a>
+          <a href="https://github.com/alanlopesdev" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)">GitHub</a>
         </div>
       </section>
     </main>
@@ -258,22 +258,22 @@
       const supportedLanguages = ['en', 'pt'];
 
       function setLanguage(lang) {
-        if (!supportedLanguages.includes(lang)) {
-          return;
-        }
+        const normalizedLanguage = supportedLanguages.includes(lang) ? lang : 'en';
 
         translatable.forEach((element) => {
           const key = element.getAttribute('data-i18n');
-          if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
+          if (translations[normalizedLanguage] && translations[normalizedLanguage][key]) {
+            element.textContent = translations[normalizedLanguage][key];
           }
         });
 
         buttons.forEach((button) => {
-          button.classList.toggle('active', button.getAttribute('data-lang-btn') === lang);
+          const isActive = button.getAttribute('data-lang-btn') === normalizedLanguage;
+          button.classList.toggle('active', isActive);
+          button.setAttribute('aria-pressed', String(isActive));
         });
 
-        document.documentElement.lang = lang;
+        document.documentElement.lang = normalizedLanguage;
       }
 
       buttons.forEach((button) => {
