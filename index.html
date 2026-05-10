@@ -255,10 +255,11 @@
 
       const buttons = document.querySelectorAll('[data-lang-btn]');
       const translatable = document.querySelectorAll('[data-i18n]');
+      const defaultLanguage = 'en';
       const supportedLanguages = ['en', 'pt'];
 
       function setLanguage(lang) {
-        const normalizedLanguage = supportedLanguages.includes(lang) ? lang : 'en';
+        const normalizedLanguage = supportedLanguages.includes(lang) ? lang : defaultLanguage;
 
         translatable.forEach((element) => {
           const key = element.getAttribute('data-i18n');
@@ -280,7 +281,7 @@
         button.addEventListener('click', () => setLanguage(button.getAttribute('data-lang-btn')));
       });
 
-      setLanguage('en');
+      setLanguage(defaultLanguage);
     </script>
   </body>
 </html>
