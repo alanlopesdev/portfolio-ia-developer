@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alan Lopes | Portfolio</title>
+    <style>
+      :root {
+        --bg: #030712;
+        --card: rgba(15, 23, 42, 0.75);
+        --text: #f8fafc;
+        --muted: #cbd5e1;
+        --accent: #38bdf8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at 20% 20%, #1e293b 0%, #020617 45%, #000 100%);
+        overflow-x: hidden;
+      }
+
+      .stars,
+      .stars::before,
+      .stars::after {
+        position: fixed;
+        inset: 0;
+        content: "";
+        display: block;
+        background-repeat: repeat;
+        pointer-events: none;
+      }
+
+      .stars {
+        background-image: radial-gradient(#ffffff 1px, transparent 1px);
+        background-size: 3px 3px;
+        opacity: 0.18;
+      }
+
+      .stars::before {
+        background-image: radial-gradient(#93c5fd 1px, transparent 1px);
+        background-size: 4px 4px;
+        opacity: 0.22;
+        animation: twinkle 6s linear infinite;
+      }
+
+      .stars::after {
+        background-image: radial-gradient(#f8fafc 1px, transparent 1px);
+        background-size: 5px 5px;
+        opacity: 0.1;
+        animation: twinkle 9s linear infinite reverse;
+      }
+
+      @keyframes twinkle {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-20px);
+        }
+      }
+
+      .floating-layer {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .float-word {
+        position: absolute;
+        color: rgba(56, 189, 248, 0.6);
+        font-weight: 600;
+        animation: floatWord linear infinite;
+        text-transform: uppercase;
+      }
+
+      @keyframes floatWord {
+        0% {
+          transform: translateY(20vh) scale(0.95);
+          opacity: 0;
+        }
+        20% {
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateY(-120vh) scale(1.05);
+          opacity: 0;
+        }
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1rem 3rem;
+      }
+
+      .lang-switch {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-end;
+      }
+
+      .lang-switch button {
+        border: 1px solid #334155;
+        background: #0f172a;
+        color: var(--text);
+        padding: 0.4rem 0.8rem;
+        border-radius: 999px;
+        cursor: pointer;
+      }
+
+      .lang-switch button.active {
+        background: var(--accent);
+        color: #082f49;
+        border-color: var(--accent);
+        font-weight: 700;
+      }
+
+      .card {
+        margin-top: 1rem;
+        background: var(--card);
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        border-radius: 16px;
+        padding: 1.3rem;
+        backdrop-filter: blur(4px);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+      }
+
+      .subtitle {
+        color: var(--accent);
+        margin: 0.35rem 0 1rem;
+      }
+
+      p,
+      li {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      ul {
+        margin: 0.6rem 0 0;
+        padding-left: 1.1rem;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-top: 0.65rem;
+      }
+
+      .skills span {
+        border: 1px solid #334155;
+        border-radius: 999px;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.9rem;
+        color: #dbeafe;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-top: 1rem;
+      }
+
+      .links a {
+        color: var(--text);
+        text-decoration: none;
+        border: 1px solid #475569;
+        border-radius: 10px;
+        padding: 0.4rem 0.7rem;
+        background: rgba(15, 23, 42, 0.7);
+      }
+
+      .links a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stars"></div>
+    <div class="floating-layer" aria-hidden="true">
+      <span class="float-word" style="left: 8%; animation-duration: 11s; animation-delay: -2s; font-size: 1.2rem">Python</span>
+      <span class="float-word" style="left: 26%; animation-duration: 13s; animation-delay: -5s; font-size: 1rem">TypeScript</span>
+      <span class="float-word" style="left: 44%; animation-duration: 12s; animation-delay: -8s; font-size: 1.1rem">Dart</span>
+      <span class="float-word" style="left: 60%; animation-duration: 14s; animation-delay: -3s; font-size: 1rem">FlutterFlow</span>
+      <span class="float-word" style="left: 76%; animation-duration: 10s; animation-delay: -6s; font-size: 1.15rem">LangChain</span>
+    </div>
+
+    <main>
+      <div class="lang-switch">
+        <button type="button" class="active" data-lang-btn="en">English</button>
+        <button type="button" data-lang-btn="pt">Português</button>
+      </div>
+
+      <section class="card">
+        <h1 data-i18n="name">Alan Lopes</h1>
+        <p class="subtitle" data-i18n="headline">Software Engineering & AI Enthusiast</p>
+
+        <p data-i18n="intro">
+          I'm 24 years old, a Brazilian bachelor's degree student in Software Engineering living in Rio de Janeiro.
+        </p>
+        <p data-i18n="current">
+          I'm currently a low-code developer at TeamSoft for about six months, working with FlutterFlow, Dart, Supabase and Figma.
+        </p>
+
+        <strong data-i18n="skillsLabel">Main skills</strong>
+        <div class="skills" aria-label="Skills">
+          <span>Python</span>
+          <span>TypeScript</span>
+          <span>Dart / FlutterFlow</span>
+          <span>LangChain</span>
+        </div>
+
+        <div class="links">
+          <a href="https://x.com/alanlopesz1" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://www.linkedin.com/in/alan-lopes-aa943b216/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/alanlopesdev" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const translations = {
+        en: {
+          name: "Alan Lopes",
+          headline: "Software Engineering & AI Enthusiast",
+          intro:
+            "I'm 24 years old, a Brazilian bachelor's degree student in Software Engineering living in Rio de Janeiro.",
+          current:
+            "I'm currently a low-code developer at TeamSoft for about six months, working with FlutterFlow, Dart, Supabase and Figma.",
+          skillsLabel: 'Main skills'
+        },
+        pt: {
+          name: "Alan Lopes",
+          headline: "Entusiasta de Engenharia de Software e IA",
+          intro:
+            "Tenho 24 anos, sou estudante brasileiro de bacharelado em Engenharia de Software e moro no Rio de Janeiro.",
+          current:
+            "Atualmente sou desenvolvedor low-code na TeamSoft há cerca de seis meses, trabalhando com FlutterFlow, Dart, Supabase e Figma.",
+          skillsLabel: 'Principais habilidades'
+        }
+      };
+
+      const buttons = document.querySelectorAll('[data-lang-btn]');
+      const translatable = document.querySelectorAll('[data-i18n]');
+
+      function setLanguage(lang) {
+        translatable.forEach((element) => {
+          const key = element.getAttribute('data-i18n');
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+
+        buttons.forEach((button) => {
+          button.classList.toggle('active', button.getAttribute('data-lang-btn') === lang);
+        });
+
+        document.documentElement.lang = lang;
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => setLanguage(button.getAttribute('data-lang-btn')));
+      });
+    </script>
+  </body>
+</html>
